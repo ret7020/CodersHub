@@ -1,0 +1,134 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
+    <!-- main style -->
+    <link rel="stylesheet" href="/static/css/main.css"/>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin">
+    <title>CodersHub</title>
+  </head>
+  <body class="bg-gray">
+    <!-- Login -->
+    <div class="container mt-5 pt-5 d-flex flex-column flex-lg-row justify-content-evenly">
+      <!-- heading -->
+      <div class="text-center text-lg-start mt-0 pt-0 mt-lg-5 pt-lg-5">
+        <h1 class="text-info fw-bold fs-0">CodersHub</h1>
+        <p class="w-75 mx-auto fs-4 mx-lg-0">CodersHub - социальная сеть для технологических классов Москвы.</p>
+      </div>
+      <!-- form card -->
+      <div style="max-width: 28rem; width: 100%">
+        <!-- login form -->
+        <!-- first was form tag -->
+        <div class="bg-white shadow rounded p-3 input-group-lg">
+          <div class="alert alert-danger" role="alert" id="invalid_auth">
+            Неверный логин или пароль!
+          </div>
+          
+          <input type="email" class="form-control my-3" placeholder="Email или ник" />
+          <input type="password" class="form-control my-3" placeholder="Пароль" />
+          <a href="./feed.html"><button class="btn btn-primary w-100 my-3">Войти</button></a>
+          <a href="#" class="text-decoration-none text-center"><p>Восстановить пароль</p></a>
+          <!-- create form -->
+          <hr />
+          <div class="text-center my-4">
+            <button class="btn btn-success btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#createModal">Создать аккаунт</button>
+          </div>
+          <!-- create modal -->
+          <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+              <div class="modal-content">
+                <!-- head -->
+                <div class="modal-header">
+                  <div>
+                    <h2 class="modal-title" id="exampleModalLabel">Регистрация</h2>
+                    <span class="text-muted fs-7">Это быстро и просто!</span>
+                  </div>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- body -->
+                <div class="modal-body">
+                  <form>
+                    <!-- names -->
+                    <div class="row">
+                      <div class="col">
+                        <input type="text" class="form-control" placeholder="Имя" />
+                      </div>
+                      <div class="col">
+                        <input type="text" class="form-control" placeholder="Фамилия" />
+                      </div>
+                    </div>
+                    <!-- email & pass -->
+                    <input type="email" class="form-control my-3" placeholder="Email" />
+                    <input type="password" class="form-control my-3" placeholder="Пароль" />
+                    <!-- DOB -->
+                    <div class="row my-3">
+                      <span class="text-muted fs-7">Дата рождения <i class="fas fa-question-circle" data-bs-toggle="popover" type="button" data-bs-content="Эту информацию видят все пользователи"></i></span>
+                      <div class="input-group" id="br_block">
+                      </div>
+                      
+                    </div>
+                    <!-- gender -->
+                    <div class="row my-3">
+                      <span class="text-muted fs-7">Пол <i class="fas fa-question-circle" data-bs-toggle="popover" type="button" data-bs-content="Эту информацию видят все пользователи"></i></span>
+                      <div class="col">
+                        <div class="border rounded p-2">
+                          <label class="form-check-label" for="flexRadioDefault1">Мужской </label>
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="border rounded p-2">
+                          <label class="form-check-label" for="flexRadioDefault1">Женский </label>
+                          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" />
+                        </div>
+                      </div>
+                    </div>
+                    <!-- gender select -->
+                  
+                    <!-- disclaimer -->
+                    <div>
+                      <span class="text-muted fs-7">О том как мы храним вашу информацию</span>
+                    </div>
+                    <!-- btn -->
+                    <div class="text-center mt-3">
+                      <button type="button" class="btn btn-success btn-lg" data-bs-dismiss="modal">Зарегистрироваться</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- modal end -->
+        </div>
+       
+      </div>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-white p-4 text-muted">
+      <div class="container">
+        
+        <hr />
+        <!-- actions -->
+        <div class="d-flex flex-wrap">
+          <p class="mx-2 fs-7 mb-0">Регистрация</p>
+          <p class="mx-2 fs-7 mb-0">Вход</p>
+          <p class="mx-2 fs-7 mb-0">Задачи</p>
+          <p class="mx-2 fs-7 mb-0">Блоги</p>
+        </div>
+        <!-- copy -->
+        <div class="mt-4 mx-2">
+          <p class="fs-7">CodersHub by Stephan Zhdanov in 2022 year</p>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="/static/js/bootstrap-birthday.js"></script>
+    <script src="/static/js/login.js"></script>
+  </body>
+</html>
