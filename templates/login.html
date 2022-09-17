@@ -28,10 +28,13 @@
           <div class="alert alert-danger" role="alert" id="invalid_auth">
             Неверный логин или пароль!
           </div>
+          <form action="/login" method="POST" id="login_form">
+            <input type="email" class="form-control my-3" placeholder="Email или ник" name="email"/>
+            <input type="password" class="form-control my-3" placeholder="Пароль" name="password"/>
+            <button class="btn btn-primary w-100 my-3" type="submit">Войти</button>
+          </form>
+            
           
-          <input type="email" class="form-control my-3" placeholder="Email или ник" />
-          <input type="password" class="form-control my-3" placeholder="Пароль" />
-          <a href="./feed.html"><button class="btn btn-primary w-100 my-3">Войти</button></a>
           <a href="#" class="text-decoration-none text-center"><p>Восстановить пароль</p></a>
           <!-- create form -->
           <hr />
@@ -45,6 +48,7 @@
                 <!-- head -->
                 <div class="modal-header">
                   <div>
+                    
                     <h2 class="modal-title" id="exampleModalLabel">Регистрация</h2>
                     <span class="text-muted fs-7">Это быстро и просто!</span>
                   </div>
@@ -52,19 +56,22 @@
                 </div>
                 <!-- body -->
                 <div class="modal-body">
-                  <form>
+                  <div class="alert alert-danger" role="alert" id="email_already_used" style="display: none;">
+                    Этот email уже использует другой аккаунт!
+                  </div>
+                  <form method="POST" action="/signup" id="sign_up_form">
                     <!-- names -->
                     <div class="row">
                       <div class="col">
-                        <input type="text" class="form-control" placeholder="Имя" />
+                        <input type="text" class="form-control" placeholder="Имя" name="f_name"/>
                       </div>
                       <div class="col">
-                        <input type="text" class="form-control" placeholder="Фамилия" />
+                        <input type="text" class="form-control" placeholder="Фамилия" name="l_name"/>
                       </div>
                     </div>
                     <!-- email & pass -->
-                    <input type="email" class="form-control my-3" placeholder="Email" />
-                    <input type="password" class="form-control my-3" placeholder="Пароль" />
+                    <input type="email" class="form-control my-3" placeholder="Email" name="email"/>
+                    <input type="password" class="form-control my-3" placeholder="Пароль" name="password" />
                     <!-- DOB -->
                     <div class="row my-3">
                       <span class="text-muted fs-7">Дата рождения <i class="fas fa-question-circle" data-bs-toggle="popover" type="button" data-bs-content="Эту информацию видят все пользователи"></i></span>
@@ -96,7 +103,7 @@
                     </div>
                     <!-- btn -->
                     <div class="text-center mt-3">
-                      <button type="button" class="btn btn-success btn-lg" data-bs-dismiss="modal">Зарегистрироваться</button>
+                      <button class="btn btn-success btn-lg" type="submit">Зарегистрироваться</button>
                     </div>
                   </form>
                 </div>
@@ -130,5 +137,6 @@
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="/static/js/bootstrap-birthday.js"></script>
     <script src="/static/js/login.js"></script>
+    <script src="/static/js/api.js"></script>
   </body>
 </html>

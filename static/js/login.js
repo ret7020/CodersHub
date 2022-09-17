@@ -40,3 +40,30 @@ $('#br_block').bootstrapBirthday({
     }
 
 });
+
+// Bindings
+$("#sign_up_form").submit(function(e) {
+    e.preventDefault();
+    var api_endpoint = $(this).attr('action');
+    var formData = new FormData(this);
+    sendForm(api_endpoint, formData).then(function(resp){
+        if (resp["status"]){
+            window.location.replace("/feed");
+        }else{
+            $("#email_already_used").css("display", "block");
+        }
+    });
+});
+
+$("#login_form").submit(function(e) {
+    e.preventDefault();
+    var api_endpoint = $(this).attr('action');
+    var formData = new FormData(this);
+    sendForm(api_endpoint, formData).then(function(resp){
+        if (resp["status"]){
+            window.location.replace("/feed");
+        }else{
+            $("#invalid_auth").css("display", "block");
+        }
+    });
+});
