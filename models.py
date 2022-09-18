@@ -14,6 +14,8 @@ class User(UserMixin, db.Model):
     nickname = db.Column(db.String(1000))
     avatar_path = db.Column(db.String(100), default="default.png")
     posts = db.relationship('Post', backref='author', lazy='dynamic')
+    reactions = db.relationship('PostReactions', backref='user', lazy='dynamic', primaryjoin="User.id == PostReactions.user_id")
+    comments = db.relationship('PostComments', backref='user', lazy='dynamic', primaryjoin="User.id == PostComments.user_id")
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -21,4 +23,15 @@ class Post(db.Model):
     owner_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     publish_time = db.Column(db.DateTime, default=datetime.now)
     privacy = db.Column(db.Integer, default=0)
+    reactions = db.relationship('PostReactions', backref='author', lazy='dynamic')
 
+class PostReactions(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    reaction_type = db.Column(db.Integer)
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+
+class PostComments(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    text = db.Column(db.String(1000))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))

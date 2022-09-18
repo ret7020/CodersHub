@@ -11,13 +11,11 @@ function sendForm(api_endpoint, formData){
 }
 
 
-function postReqApi(api_endpoint, data, csrf_token){
+function postReqApi(api_endpoint, data){
     return fetch(api_endpoint, { 
         method: 'POST',
         body: JSON.stringify(data),
-        headers: {
-            'X-CSRFToken': csrf_token
-          }
+       
       
       })
       .then((response) => response.json())

@@ -1,3 +1,20 @@
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl);
+});
+
+
+function reactPost(post_id, reaction_type){
+    postReqApi('/api/react_post', {"post_id": post_id, "reaction_type": reaction_type}).then(function(resp){
+        let reacted = $(`#post-${post_id}-card`).data("reacted");
+        if (reacted == -1){
+            if (reaction_type == 1){
+                $(`#like-post-${post_id}-title`).addClass("text-primary");
+                $(`#like-post-${post_id}-icon`).addClass("text-primary");
+            }
+        }
+    });
+}
 
 
 // Bindings

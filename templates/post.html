@@ -1,10 +1,10 @@
 {% for post in posts %}
-    <div class="bg-white p-4 rounded shadow mt-3">
+    <div class="bg-white p-4 rounded shadow mt-3" id="post-{{post[0]}}-card" data-reacted={{post[5]}}>
         <!-- author -->
         <div class="d-flex justify-content-between">
         <!-- avatar -->
         <div class="d-flex">
-            <img src="" alt="avatar" class="rounded-circle me-2"
+            <img src="/users_data/avatars/{{post[4]}}" alt="avatar" class="rounded-circle me-2"
             style="width: 38px; height: 38px; object-fit: cover" />
             <div>
             <p class="m-0 fw-bold">{{post[3]}}</p>
@@ -12,10 +12,10 @@
             </div>
         </div>
         <!-- edit -->
-        <i class="fas fa-ellipsis-h" type="button" id="post1Menu" data-bs-toggle="dropdown"
+        <i class="fas fa-ellipsis-h" type="button" id="post{{post[0]}}Menu" data-bs-toggle="dropdown"
             aria-expanded="false"></i>
         <!-- edit menu -->
-        <ul class="dropdown-menu border-0 shadow" aria-labelledby="post1Menu">
+        <ul class="dropdown-menu border-0 shadow" aria-labelledby="post{{post[0]}}Menu">
             <li class="d-flex align-items-center">
             <a class="
                     dropdown-item
@@ -59,7 +59,7 @@
             <div class="me-2">
                 <i class="text-primary fas fa-thumbs-up"></i>
             </div>
-            <p class="m-0 text-muted fs-7">10</p>
+            <p class="m-0 text-muted fs-7">0</p>
             
             </div>
             <!-- comments start-->
@@ -73,8 +73,8 @@
                         pointer
                         d-flex
                         justify-content-end
-                        " data-bs-toggle="collapse" data-bs-target="#collapsePost1" aria-expanded="false"
-                    aria-controls="collapsePost1">
+                        " data-bs-toggle="collapse" data-bs-target="#collapsePost{{post[0]}}" aria-expanded="false"
+                    aria-controls="collapsePost{{post[0]}}">
                     <p class="m-0">2 Comments</p>
                 </div>
                 </h2>
@@ -90,9 +90,9 @@
                         pointer
                         text-muted
                         p-1
-                        ">
-                    <i class="fas fa-thumbs-up me-3"></i>
-                    <p class="m-0">Нравится</p>
+                        " id="like-post-{{post[0]}}-button" onclick="reactPost({{post[0]}}, 1)">
+                    <i class="fas fa-thumbs-up me-3 {% if post[5] == 1 %} text-primary {% endif %}" id="like-post-{{post[0]}}-icon"></i>
+                    <p class="m-0 {% if post[5] == 1 %} text-primary {% endif %}" id="like-post-{{post[0]}}-title">Нравится</p>
                 </div>
                 <div class="
                         dropdown-item
@@ -116,14 +116,14 @@
                         pointer
                         text-muted
                         p-1
-                        " data-bs-toggle="collapse" data-bs-target="#collapsePost1" aria-expanded="false"
-                    aria-controls="collapsePost1">
+                        " data-bs-toggle="collapse" data-bs-target="#collapsePost{{post[0]}}" aria-expanded="false"
+                    aria-controls="collapsePost{{post[0]}}">
                     <i class="fas fa-comment-alt me-3"></i>
                     <p class="m-0">Комментарии</p>
                 </div>
                 </div>
                 <!-- comment expand -->
-                <div id="collapsePost1" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                <div id="collapsePost{{post[0]}}" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                 data-bs-parent="#accordionExample">
                 <hr />
                 <div class="accordion-body">
@@ -196,7 +196,7 @@
                     <form class="d-flex my-1">
                     <!-- avatar -->
                     <div>
-                        <img src="https://source.unsplash.com/collection/happy-people" alt="avatar"
+                        <img src="/users_data/avatars/{{user_avatar}}" alt="avatar"
                         class="rounded-circle me-2" style="
                                 width: 38px;
                                 height: 38px;

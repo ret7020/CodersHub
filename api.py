@@ -2,7 +2,7 @@ from flask import Blueprint, jsonify, request, Markup, render_template
 from .models import *
 from flask_login import login_required, current_user
 from . import db
-
+import json
 
 api = Blueprint('api', __name__)
 month_translations = ["Январь",
@@ -48,7 +48,7 @@ def create_post():
     db.session.add(p)
     db.session.commit()
 
-    return jsonify({"status": True, "data": render_template("post.html", posts=[(p.id, p.text, p.publish_time, p.author.f_name)], month_translations=month_translations)})
+    return jsonify({"status": True, "data": render_template("post.html", posts=[(p.id, p.text, p.publish_time, p.author.f_name, p.author.avatar_path)], month_translations=month_translations)})
 
 
 @api.route('/api/get_user_posts')
@@ -58,7 +58,7 @@ def get_user_posts():
         user_id = int(request.args.get("user_id"))
         user = User.query.get(user_id)
         if user:
-            posts = [(post.id, post.text, post.publish_time, post.author.f_name) for post in user.posts.all()]
+            posts = [(post.id, post.text, post.publish_time, post.author.f_name, post.author.avatar_path) for post in user.posts.all()]
             return jsonify({"status": True, "data": posts})
         else:
             return jsonify({"status": False, "data": "No such user"})
@@ -69,8 +69,48 @@ def get_user_posts():
 @api.route('/api/load_posts_for_user')
 @login_required
 def load_posts_for_user():
-    posts = [(post.id, post.text, post.publish_time, post.author.f_name)
-             for post in Post.query.all()]
+    posts = []
+    for post in Post.query.all():
+        reaction = post.reactions.filter(PostReactions.user_id == current_user.id).all()
+        if reaction:
+            reaction = reaction[0].reaction_type
+        else:
+            reaction = -1
+        posts.append((post.id, post.text, post.publish_time, post.author.f_name, post.author.avatar_path, reaction))
+    #posts = [(post.id, post.text, post.publish_time, post.author.f_name, post.author.avatar_path, post.reactions.filter(PostReactions.user_id == current_user.id).all())
+    #         for post in Post.query.all()]
     posts = reversed(posts)
-    post_html = render_template("post.html", posts=posts, month_translations=month_translations)
+
+    post_html = render_template("post.html", posts=posts, month_translations=month_translations, user_avatar=current_user.avatar_path)
     return jsonify({"status": True, "data": post_html})
+
+@api.route('/api/react_post', methods=['POST'])
+@login_required
+def react_post():
+    data = json.loads(request.data.decode("utf-8"))
+    if 'post_id' in data:
+        post = Post.query.get(data['post_id'])
+        if post:
+            reacted = None
+            for reaction in post.reactions.all():
+                if reaction.user_id == current_user.id:
+                    reacted = reaction
+            if not reacted:
+                if "reaction_type" in data and data["reaction_type"] in [0, 1]:
+                    new_reaction = PostReactions(reaction_type=data["reaction_type"], post_id=data['post_id'], user_id=current_user.id)
+                    db.session.add(new_reaction)
+                    db.session.commit()
+                else:
+                    return jsonify({"status": False, "data": "Invalid reaction type"})
+            else:
+                if reacted.reaction_type == data['reaction_type']:
+                    db.session.delete(reacted)
+                else:
+                    reacted.reaction_type = data['reaction_type']
+                    db.session.add(reacted)
+                db.session.commit()
+            return jsonify({"status": True})
+        else:
+            return jsonify({"status": False, "data": "No such post"})
+    else:
+        return jsonify({"status": False, "data": "Invalid post_id"})
