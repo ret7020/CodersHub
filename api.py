@@ -3,6 +3,7 @@ from .models import *
 from flask_login import login_required, current_user
 from . import db
 import json
+from .utils import numeral_noun_declension
 
 api = Blueprint('api', __name__)
 month_translations = ["Январь",
@@ -76,7 +77,8 @@ def load_posts_for_user():
             reaction = reaction[0].reaction_type
         else:
             reaction = -1
-        posts.append((post.id, post.text, post.publish_time, post.author.f_name, post.author.avatar_path, reaction))
+        comments_cnt = len(post.comments.all())
+        posts.append((post.id, post.text, post.publish_time, post.author.f_name, post.author.avatar_path, reaction, f'{comments_cnt} {numeral_noun_declension(comments_cnt, "комментарий", "комментария", "комментариев")}'))
     #posts = [(post.id, post.text, post.publish_time, post.author.f_name, post.author.avatar_path, post.reactions.filter(PostReactions.user_id == current_user.id).all())
     #         for post in Post.query.all()]
     posts = reversed(posts)

@@ -24,6 +24,7 @@ class Post(db.Model):
     publish_time = db.Column(db.DateTime, default=datetime.now)
     privacy = db.Column(db.Integer, default=0)
     reactions = db.relationship('PostReactions', backref='author', lazy='dynamic')
+    comments = db.relationship('PostComments', backref='post', lazy='dynamic')
 
 class PostReactions(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -34,4 +35,6 @@ class PostReactions(db.Model):
 class PostComments(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     text = db.Column(db.String(1000))
+    post_id = db.Column(db.Integer, db.ForeignKey('post.id'))
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    

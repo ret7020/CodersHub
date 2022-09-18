@@ -11,11 +11,40 @@ function reactPost(post_id, reaction_type){
             if (reaction_type == 1){
                 $(`#like-post-${post_id}-title`).addClass("text-primary");
                 $(`#like-post-${post_id}-icon`).addClass("text-primary");
+                $(`#post-${post_id}-card`).data("reacted", 1);
+            }else if (reaction_type == 0){
+                $(`#dislike-post-${post_id}-title`).addClass("text-danger");
+                $(`#dislike-post-${post_id}-icon`).addClass("text-danger");
+                $(`#post-${post_id}-card`).data("reacted", 0);
             }
+        }else if (reacted == 1){
+            
+            $(`#like-post-${post_id}-title`).removeClass("text-primary");
+            $(`#like-post-${post_id}-icon`).removeClass("text-primary");
+            $(`#post-${post_id}-card`).data("reacted", -1);
+
+            if (reaction_type == 0){
+                $(`#dislike-post-${post_id}-title`).addClass("text-danger");
+                $(`#dislike-post-${post_id}-icon`).addClass("text-danger");
+                $(`#post-${post_id}-card`).data("reacted", 0);
+            }
+            
+
+        }else if (reacted == 0){
+            $(`#dislike-post-${post_id}-title`).removeClass("text-danger");
+            $(`#dislike-post-${post_id}-icon`).removeClass("text-danger");
+            $(`#post-${post_id}-card`).data("reacted", -1);
+
+            if (reaction_type == 1){
+                $(`#like-post-${post_id}-title`).addClass("text-primary");
+                $(`#like-post-${post_id}-icon`).addClass("text-primary");
+                $(`#post-${post_id}-card`).data("reacted", 1);
+            }
+
+            
         }
     });
 }
-
 
 // Bindings
 $("#new_post_form").submit(function(e) {
@@ -45,3 +74,4 @@ $(document).ready(function() {
         
     });
 });
+

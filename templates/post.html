@@ -75,7 +75,7 @@
                         justify-content-end
                         " data-bs-toggle="collapse" data-bs-target="#collapsePost{{post[0]}}" aria-expanded="false"
                     aria-controls="collapsePost{{post[0]}}">
-                    <p class="m-0">2 Comments</p>
+                    <p class="m-0">{{post[6]}}</p>
                 </div>
                 </h2>
                 <hr />
@@ -103,9 +103,9 @@
                         pointer
                         text-muted
                         p-1
-                        ">
-                    <i class="fas fa-thumbs-down me-3"></i>
-                    <p class="m-0">Не нравится</p>
+                        " id="dislike-post-{{post[0]}}-button" onclick="reactPost({{post[0]}}, 0)">
+                    <i class="fas fa-thumbs-down me-3 {% if post[5] == 0 %} text-danger {% endif %}" id="dislike-post-{{post[0]}}-icon"></i>
+                    <p class="m-0 {% if post[5] == 0 %} text-danger {% endif %}" id="dislike-post-{{post[0]}}-title">Не нравится</p>
                 </div>
                 <div class="
                         dropdown-item
