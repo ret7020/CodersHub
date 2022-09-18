@@ -2,9 +2,15 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager 
+from .resources_storage import ResourcesStorage
+from flask_migrate import Migrate
+
 
 # init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy()
+migrate = Migrate()
+
+resources = ResourcesStorage()
 
 def create_app():
     app = Flask(__name__)
@@ -15,6 +21,7 @@ def create_app():
     app.config["TEMPLATES_AUTO_RELOAD"] = True
 
     db.init_app(app)
+    migrate.init_app(app, db=db)
     
 
     login_manager = LoginManager()
@@ -35,6 +42,11 @@ def create_app():
     # blueprint for non-auth parts of app
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+
+    from .api import api as api_blueprint
+    app.register_blueprint(api_blueprint)
+
+    app.register_blueprint(resources.blueprint)
     
 
     return app
