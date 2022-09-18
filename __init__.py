@@ -4,10 +4,23 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager 
 from .resources_storage import ResourcesStorage
 from flask_migrate import Migrate
+from sqlalchemy import MetaData
+
 
 
 # init SQLAlchemy so we can use it later in our models
-db = SQLAlchemy()
+convention = {
+    "ix": 'ix_%(column_0_label)s',
+    "uq": "uq_%(table_name)s_%(column_0_name)s",
+    "ck": "ck_%(table_name)s_%(constraint_name)s",
+    "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
+    "pk": "pk_%(table_name)s"
+}
+
+metadata = MetaData(naming_convention=convention)
+
+
+db = SQLAlchemy(metadata=metadata)
 migrate = Migrate()
 
 resources = ResourcesStorage()
@@ -21,7 +34,7 @@ def create_app():
     app.config["TEMPLATES_AUTO_RELOAD"] = True
 
     db.init_app(app)
-    migrate.init_app(app, db=db)
+    migrate.init_app(app, db=db, render_as_batch=True)
     
 
     login_manager = LoginManager()

@@ -12,6 +12,7 @@ class User(UserMixin, db.Model):
     user_status = db.Column(db.Integer)
     birthday = db.Column(db.String(1000))
     nickname = db.Column(db.String(1000))
+    avatar_path = db.Column(db.String(100), default="default.png")
     posts = db.relationship('Post', backref='author', lazy='dynamic')
 
 class Post(db.Model):
