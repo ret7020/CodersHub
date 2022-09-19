@@ -15,6 +15,9 @@
     integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous" />
   <!-- main style -->
   <link rel="stylesheet" href="/static/css/main.css" />
+  <link rel="stylesheet"
+  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+
   <title>CodersHub</title>
 </head>
 
@@ -819,7 +822,7 @@
                 style="width: 45px; height: 45px; object-fit: cover" />
               <div>
                 <p class="m-0">{{user_name}}</p>
-                <p class="m-0 text-muted">See your profile</p>
+                <p class="m-0 text-muted">Открыть профиль</p>
               </div>
             </li>
             <hr />
@@ -827,9 +830,9 @@
             <li class="dropdown-item p-1 rounded d-flex align-items-center" type="button">
               <i class="fas fa-exclamation-circle bg-gray p-2 rounded-circle"></i>
               <div class="ms-3">
-                <p class="m-0">Give Feedback</p>
+                <p class="m-0">Оставить отзыв</p>
                 <p class="m-0 text-muted fs-7">
-                  Help us improve the new Flexbook.
+                  Что вы думаете о CodersHub
                 </p>
               </div>
             </li>
@@ -848,7 +851,7 @@
                           align-items-center
                           w-100
                         ">
-                      <p class="m-0">Settings & Privacy</p>
+                      <p class="m-0">Настройки и приватность</p>
                       <i class="fas fa-chevron-right"></i>
                     </div>
                   </div>
@@ -973,7 +976,7 @@
                           align-items-center
                           w-100
                         ">
-                      <p class="m-0">Help & Support</p>
+                      <p class="m-0">О CodersHub</p>
                       <i class="fas fa-chevron-right"></i>
                     </div>
                   </div>
@@ -990,41 +993,9 @@
                               justify-content-center
                               me-2
                             " style="width: 38px; height: 38px">
-                          <i class="fas fa-cog"></i>
+                          <i class="fas fa-question-circle"></i>
                         </div>
-                        <p class="m-0">Settings</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item d-flex align-items-center" href="#">
-                        <div class="
-                              rounded-circle
-                              p-1
-                              bg-gray
-                              d-flex
-                              align-items-center
-                              justify-content-center
-                              me-2
-                            " style="width: 38px; height: 38px">
-                          <i class="fas fa-lock"></i>
-                        </div>
-                        <p class="m-0">Privacy Checkup</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item d-flex align-items-center" href="#">
-                        <div class="
-                              rounded-circle
-                              p-1
-                              bg-gray
-                              d-flex
-                              align-items-center
-                              justify-content-center
-                              me-2
-                            " style="width: 38px; height: 38px">
-                          <i class="fas fa-unlock-alt"></i>
-                        </div>
-                        <p class="m-0">Privacy Shortcuts</p>
+                        <p class="m-0">FAQ</p>
                       </a>
                     </li>
                     <li>
@@ -1040,41 +1011,10 @@
                             " style="width: 38px; height: 38px">
                           <i class="fas fa-list"></i>
                         </div>
-                        <p class="m-0">Activity Log</p>
+                        <p class="m-0">Правила использования</p>
                       </a>
                     </li>
-                    <li>
-                      <a class="dropdown-item d-flex align-items-center" href="#">
-                        <div class="
-                              rounded-circle
-                              p-1
-                              bg-gray
-                              d-flex
-                              align-items-center
-                              justify-content-center
-                              me-2
-                            " style="width: 38px; height: 38px">
-                          <i class="fas fa-newspaper"></i>
-                        </div>
-                        <p class="m-0">News Feed Preferences</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item d-flex align-items-center" href="#">
-                        <div class="
-                              rounded-circle
-                              p-1
-                              bg-gray
-                              d-flex
-                              align-items-center
-                              justify-content-center
-                              me-2
-                            " style="width: 38px; height: 38px">
-                          <i class="fas fa-globe"></i>
-                        </div>
-                        <p class="m-0">Language</p>
-                      </a>
-                    </li>
+                    
                   </ul>
                 </li>
               </ul>
@@ -1092,7 +1032,7 @@
                           align-items-center
                           w-100
                         ">
-                      <p class="m-0">Display & Accessibility</p>
+                      <p class="m-0">Тема оформления</p>
                       <i class="fas fa-chevron-right"></i>
                     </div>
                   </div>
@@ -1109,9 +1049,9 @@
                               justify-content-center
                               me-2
                             " style="width: 38px; height: 38px">
-                          <i class="fas fa-cog"></i>
+                          <i class="fas fa-moon"></i>
                         </div>
-                        <p class="m-0">Settings</p>
+                        <p class="m-0">Тёмная</p>
                       </a>
                     </li>
                     <li>
@@ -1125,75 +1065,12 @@
                               justify-content-center
                               me-2
                             " style="width: 38px; height: 38px">
-                          <i class="fas fa-lock"></i>
+                          <i class="fas fa-sun"></i>
                         </div>
-                        <p class="m-0">Privacy Checkup</p>
+                        <p class="m-0">Светлая</p>
                       </a>
                     </li>
-                    <li>
-                      <a class="dropdown-item d-flex align-items-center" href="#">
-                        <div class="
-                              rounded-circle
-                              p-1
-                              bg-gray
-                              d-flex
-                              align-items-center
-                              justify-content-center
-                              me-2
-                            " style="width: 38px; height: 38px">
-                          <i class="fas fa-unlock-alt"></i>
-                        </div>
-                        <p class="m-0">Privacy Shortcuts</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item d-flex align-items-center" href="#">
-                        <div class="
-                              rounded-circle
-                              p-1
-                              bg-gray
-                              d-flex
-                              align-items-center
-                              justify-content-center
-                              me-2
-                            " style="width: 38px; height: 38px">
-                          <i class="fas fa-list"></i>
-                        </div>
-                        <p class="m-0">Activity Log</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item d-flex align-items-center" href="#">
-                        <div class="
-                              rounded-circle
-                              p-1
-                              bg-gray
-                              d-flex
-                              align-items-center
-                              justify-content-center
-                              me-2
-                            " style="width: 38px; height: 38px">
-                          <i class="fas fa-newspaper"></i>
-                        </div>
-                        <p class="m-0">News Feed Preferences</p>
-                      </a>
-                    </li>
-                    <li>
-                      <a class="dropdown-item d-flex align-items-center" href="#">
-                        <div class="
-                              rounded-circle
-                              p-1
-                              bg-gray
-                              d-flex
-                              align-items-center
-                              justify-content-center
-                              me-2
-                            " style="width: 38px; height: 38px">
-                          <i class="fas fa-globe"></i>
-                        </div>
-                        <p class="m-0">Language</p>
-                      </a>
-                    </li>
+                    
                   </ul>
                 </li>
               </ul>
@@ -1202,7 +1079,7 @@
             <li class="dropdown-item p-1 my-3 rounded" type="button">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a href="./index.html" class="d-flex text-decoration-none text-dark">
+                  <a href="/logout" class="d-flex text-decoration-none text-dark">
                     <i class="fas fa-sign-out-alt bg-gray p-2 rounded-circle"></i>
                     <div class="
                           ms-3
@@ -1211,7 +1088,7 @@
                           align-items-center
                           w-100
                         ">
-                      <p class="m-0">Выйти</p>
+                      <p class="m-0"">Выйти</p>
                     </div>
                   </a>
                 </li>
@@ -2365,6 +2242,12 @@
                           <div class="mt-4">
                             <textarea cols="30" rows="5" class="form-control border-1" name="post_text" id="post_text_area"></textarea>
                           </div>
+                          <div class="collapse" id="collapseCodeSnippetArea">
+                            <div class="mt-4">
+                              Вставьте код сюда:
+                              <textarea cols="30" rows="5" class="form-control border-1" name="post_attachment_code_snippet" id="post_attachment_code_snippet" required></textarea>
+                            </div>
+                          </div>
 
 
                           <!-- options -->
@@ -2394,8 +2277,7 @@
                                 text-danger
                                 pointer
                                 mx-1
-                          "></i>
-
+                          " data-bs-toggle="collapse" href="#collapseCodeSnippetArea" role="button" aria-expanded="false" aria-controls="collapseCodeSnippetArea"></i>
                             </div>
                           </div>
                       </div>
@@ -2453,8 +2335,17 @@
           </div>
 
           <!-- posts -->
-          <div class="posts_area">
 
+
+          <div class="posts_area">
+            <div class="bg-white p-4 rounded shadow mt-3">
+              <!-- Loading bar -->
+              <div class="d-flex justify-content-center">
+                <div class="spinner-border" role="status">
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </div>              
+            </div>
           </div>
           
 
@@ -2619,8 +2510,8 @@
                 <ul class="dropdown-menu shadow" style="width: 18em">
                   <!-- title -->
                   <div class="p-2">
-                    <h5>Chat Settings</h5>
-                    <span class="text-muted fs-7">Customize your Messenger experience.</span>
+                    <h5>Настройки</h5>
+                    <span class="text-muted fs-7">Настройте мессенджер.</span>
                   </div>
                   <hr />
                   <!-- incoming sound -->
@@ -2792,622 +2683,7 @@
                 <p class="m-0">Mike</p>
               </div>
             </li>
-            <!-- friend 2 -->
-            <li class="dropdown-item rounded my-2 px-0" type="button" data-bs-toggle="modal"
-              data-bs-target="#singleChat2">
-              <!-- avatar -->
-              <div class="d-flex align-items-center mx-2 chat-avatar" data-bs-custom-class="chat-box"
-                data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover"
-                data-bs-content='
-                          <div>
-                            <div class="popover-body d-flex p-2">
-                              <div>
-                                <img src="https://source.unsplash.com/random/2" alt="avatar" class="pop-avatar"  />
-                              </div>
-                              <div >
-                                <h5>Tuan</h5>
-                                <div class="d-flex">
-                                  <i class="fas fa-user-friends m-1 text-muted"></i>
-                                  <p>2 mutual friends: <span class="fw-bold">Jerry</span> and <span class="fw-bold">Phu</span></p>
-                                </div>
-                                <div class="d-flex">
-                                <i class="fas fa-graduation-cap m-1 text-muted"></i>
-                                <p>Studies at MIT</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ' data-bs-html="true">
-                <div class="position-relative">
-                  <img src="https://source.unsplash.com/random/2" alt="avatar" class="rounded-circle me-2"
-                    style="width: 38px; height: 38px; object-fit: cover" />
-                  <span class="
-                        position-absolute
-                        bottom-0
-                        translate-middle
-                        border border-light
-                        rounded-circle
-                        bg-success
-                        p-1
-                      " style="left: 75%">
-                    <span class="visually-hidden"></span>
-                  </span>
-                </div>
-                <p class="m-0">Tuan</p>
-              </div>
-            </li>
-            <!-- friend 3 -->
-            <li class="dropdown-item rounded my-2 px-0" type="button" data-bs-toggle="modal"
-              data-bs-target="#singleChat3">
-              <!-- avatar -->
-              <div class="d-flex align-items-center mx-2 chat-avatar" data-bs-custom-class="chat-box"
-                data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover"
-                data-bs-content='
-                              <div>
-                                <div class="popover-body d-flex p-2">
-                                  <div>
-                                    <img src="https://source.unsplash.com/random/3" alt="avatar" class="pop-avatar"  />
-                                  </div>
-                                  <div >
-                                    <h5>Jerry</h5>
-                                    <div class="d-flex">
-                                      <i class="fas fa-user-friends m-1 text-muted"></i>
-                                      <p>2 mutual friends: <span class="fw-bold">Jerry</span> and <span class="fw-bold">Phu</span></p>
-                                    </div>
-                                    <div class="d-flex">
-                                    <i class="fas fa-graduation-cap m-1 text-muted"></i>
-                                    <p>Studies at MIT</p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            ' data-bs-html="true">
-                <div class="position-relative">
-                  <img src="https://source.unsplash.com/random/3" alt="avatar" class="rounded-circle me-2"
-                    style="width: 38px; height: 38px; object-fit: cover" />
-                  <span class="
-                        position-absolute
-                        bottom-0
-                        translate-middle
-                        border border-light
-                        rounded-circle
-                        bg-success
-                        p-1
-                      " style="left: 75%">
-                    <span class="visually-hidden"></span>
-                  </span>
-                </div>
-                <p class="m-0">Jerry</p>
-              </div>
-            </li>
-            <!-- friend 4 -->
-            <li class="dropdown-item rounded my-2 px-0" type="button" data-bs-toggle="modal"
-              data-bs-target="#singleChat4">
-              <!-- avatar -->
-              <div class="d-flex align-items-center mx-2 chat-avatar" data-bs-custom-class="chat-box"
-                data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover"
-                data-bs-content='
-                          <div>
-                            <div class="popover-body d-flex p-2">
-                              <div>
-                                <img src="https://source.unsplash.com/random/4" alt="avatar" class="pop-avatar"  />
-                              </div>
-                              <div >
-                                <h5>Tony</h5>
-                                <div class="d-flex">
-                                  <i class="fas fa-user-friends m-1 text-muted"></i>
-                                  <p>2 mutual friends: <span class="fw-bold">Jerry</span> and <span class="fw-bold">Phu</span></p>
-                                </div>
-                                <div class="d-flex">
-                                <i class="fas fa-graduation-cap m-1 text-muted"></i>
-                                <p>Studies at MIT</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ' data-bs-html="true">
-                <div class="position-relative">
-                  <img src="https://source.unsplash.com/random/4" alt="avatar" class="rounded-circle me-2"
-                    style="width: 38px; height: 38px; object-fit: cover" />
-                  <span class="
-                        position-absolute
-                        bottom-0
-                        translate-middle
-                        border border-light
-                        rounded-circle
-                        bg-success
-                        p-1
-                      " style="left: 75%">
-                    <span class="visually-hidden"></span>
-                  </span>
-                </div>
-                <p class="m-0">Tony</p>
-              </div>
-            </li>
-            <!-- friend 5 -->
-            <li class="dropdown-item rounded my-2 px-0" type="button" data-bs-toggle="modal"
-              data-bs-target="#singleChat5">
-              <!-- avatar -->
-              <div class="d-flex align-items-center mx-2 chat-avatar" data-bs-custom-class="chat-box"
-                data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover"
-                data-bs-content='
-                      <div>
-                        <div class="popover-body d-flex p-2">
-                          <div>
-                            <img src="https://source.unsplash.com/random/5" alt="avatar" class="pop-avatar"  />
-                          </div>
-                          <div >
-                            <h5>Phu</h5>
-                            <div class="d-flex">
-                              <i class="fas fa-user-friends m-1 text-muted"></i>
-                              <p>2 mutual friends: <span class="fw-bold">Jerry</span> and <span class="fw-bold">Phu</span></p>
-                            </div>
-                            <div class="d-flex">
-                            <i class="fas fa-graduation-cap m-1 text-muted"></i>
-                            <p>Studies at MIT</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ' data-bs-html="true">
-                <div class="position-relative">
-                  <img src="https://source.unsplash.com/random/5" alt="avatar" class="rounded-circle me-2"
-                    style="width: 38px; height: 38px; object-fit: cover" />
-                  <span class="
-                        position-absolute
-                        bottom-0
-                        translate-middle
-                        border border-light
-                        rounded-circle
-                        bg-success
-                        p-1
-                      " style="left: 75%">
-                    <span class="visually-hidden"></span>
-                  </span>
-                </div>
-                <p class="m-0">Phu</p>
-              </div>
-            </li>
-            <!-- friend 6 -->
-            <li class="dropdown-item rounded my-2 px-0" type="button" data-bs-toggle="modal"
-              data-bs-target="#singleChat1">
-              <!-- avatar -->
-              <div class="d-flex align-items-center mx-2 chat-avatar" data-bs-custom-class="chat-box"
-                data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover"
-                data-bs-content='
-                                  <div>
-                                    <div class="popover-body d-flex p-2">
-                                      <div>
-                                        <img src="https://source.unsplash.com/random/4" alt="avatar" class="pop-avatar"  />
-                                      </div>
-                                      <div >
-                                        <h5>Mike</h5>
-                                        <div class="d-flex">
-                                          <i class="fas fa-user-friends m-1 text-muted"></i>
-                                          <p>2 mutual friends: <span class="fw-bold">Jerry</span> and <span class="fw-bold">Phu</span></p>
-                                        </div>
-                                        <div class="d-flex">
-                                        <i class="fas fa-graduation-cap m-1 text-muted"></i>
-                                        <p>Studies at MIT</p>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  </div>
-                                ' data-bs-html="true">
-                <div class="position-relative">
-                  <img src="https://source.unsplash.com/random/4" alt="avatar" class="rounded-circle me-2"
-                    style="width: 38px; height: 38px; object-fit: cover" />
-                  <span class="
-                        position-absolute
-                        bottom-0
-                        translate-middle
-                        border border-light
-                        rounded-circle
-                        bg-success
-                        p-1
-                      " style="left: 75%">
-                    <span class="visually-hidden"></span>
-                  </span>
-                </div>
-                <p class="m-0">Mike</p>
-              </div>
-            </li>
-            <!-- friend 7 -->
-            <li class="dropdown-item rounded my-2 px-0" type="button" data-bs-toggle="modal"
-              data-bs-target="#singleChat2">
-              <!-- avatar -->
-              <div class="d-flex align-items-center mx-2 chat-avatar" data-bs-custom-class="chat-box"
-                data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover"
-                data-bs-content='
-                                        <div>
-                                          <div class="popover-body d-flex p-2">
-                                            <div>
-                                              <img src="https://source.unsplash.com/random/2" alt="avatar" class="pop-avatar"  />
-                                            </div>
-                                            <div >
-                                              <h5>Tuan</h5>
-                                              <div class="d-flex">
-                                                <i class="fas fa-user-friends m-1 text-muted"></i>
-                                                <p>2 mutual friends: <span class="fw-bold">Jerry</span> and <span class="fw-bold">Phu</span></p>
-                                              </div>
-                                              <div class="d-flex">
-                                              <i class="fas fa-graduation-cap m-1 text-muted"></i>
-                                              <p>Studies at MIT</p>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      ' data-bs-html="true">
-                <div class="position-relative">
-                  <img src="https://source.unsplash.com/random/2" alt="avatar" class="rounded-circle me-2"
-                    style="width: 38px; height: 38px; object-fit: cover" />
-                  <span class="
-                        position-absolute
-                        bottom-0
-                        translate-middle
-                        border border-light
-                        rounded-circle
-                        bg-success
-                        p-1
-                      " style="left: 75%">
-                    <span class="visually-hidden"></span>
-                  </span>
-                </div>
-                <p class="m-0">Tuan</p>
-              </div>
-            </li>
-            <!-- friend 8 -->
-            <li class="dropdown-item rounded my-2 px-0" type="button" data-bs-toggle="modal"
-              data-bs-target="#singleChat3">
-              <!-- avatar -->
-              <div class="d-flex align-items-center mx-2 chat-avatar" data-bs-custom-class="chat-box"
-                data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover"
-                data-bs-content='
-                                            <div>
-                                              <div class="popover-body d-flex p-2">
-                                                <div>
-                                                  <img src="https://source.unsplash.com/random/3" alt="avatar" class="pop-avatar"  />
-                                                </div>
-                                                <div >
-                                                  <h5>Jerry</h5>
-                                                  <div class="d-flex">
-                                                    <i class="fas fa-user-friends m-1 text-muted"></i>
-                                                    <p>2 mutual friends: <span class="fw-bold">Jerry</span> and <span class="fw-bold">Phu</span></p>
-                                                  </div>
-                                                  <div class="d-flex">
-                                                  <i class="fas fa-graduation-cap m-1 text-muted"></i>
-                                                  <p>Studies at MIT</p>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                            </div>
-                                          ' data-bs-html="true">
-                <div class="position-relative">
-                  <img src="https://source.unsplash.com/random/3" alt="avatar" class="rounded-circle me-2"
-                    style="width: 38px; height: 38px; object-fit: cover" />
-                  <span class="
-                        position-absolute
-                        bottom-0
-                        translate-middle
-                        border border-light
-                        rounded-circle
-                        bg-success
-                        p-1
-                      " style="left: 75%">
-                    <span class="visually-hidden"></span>
-                  </span>
-                </div>
-                <p class="m-0">Jerry</p>
-              </div>
-            </li>
-            <!-- friend 9 -->
-            <li class="dropdown-item rounded my-2 px-0" type="button" data-bs-toggle="modal"
-              data-bs-target="#singleChat4">
-              <!-- avatar -->
-              <div class="d-flex align-items-center mx-2 chat-avatar" data-bs-custom-class="chat-box"
-                data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover"
-                data-bs-content='
-                                        <div>
-                                          <div class="popover-body d-flex p-2">
-                                            <div>
-                                              <img src="https://source.unsplash.com/random/4" alt="avatar" class="pop-avatar"  />
-                                            </div>
-                                            <div >
-                                              <h5>Tony</h5>
-                                              <div class="d-flex">
-                                                <i class="fas fa-user-friends m-1 text-muted"></i>
-                                                <p>2 mutual friends: <span class="fw-bold">Jerry</span> and <span class="fw-bold">Phu</span></p>
-                                              </div>
-                                              <div class="d-flex">
-                                              <i class="fas fa-graduation-cap m-1 text-muted"></i>
-                                              <p>Studies at MIT</p>
-                                              </div>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      ' data-bs-html="true">
-                <div class="position-relative">
-                  <img src="https://source.unsplash.com/random/4" alt="avatar" class="rounded-circle me-2"
-                    style="width: 38px; height: 38px; object-fit: cover" />
-                  <span class="
-                        position-absolute
-                        bottom-0
-                        translate-middle
-                        border border-light
-                        rounded-circle
-                        bg-success
-                        p-1
-                      " style="left: 75%">
-                    <span class="visually-hidden"></span>
-                  </span>
-                </div>
-                <p class="m-0">Tony</p>
-              </div>
-            </li>
-            <!-- friend 10 -->
-            <li class="dropdown-item rounded my-2 px-0" type="button" data-bs-toggle="modal"
-              data-bs-target="#singleChat5">
-              <!-- avatar -->
-              <div class="d-flex align-items-center mx-2 chat-avatar" data-bs-custom-class="chat-box"
-                data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover"
-                data-bs-content='
-                                    <div>
-                                      <div class="popover-body d-flex p-2">
-                                        <div>
-                                          <img src="https://source.unsplash.com/random/5" alt="avatar" class="pop-avatar"  />
-                                        </div>
-                                        <div >
-                                          <h5>Phu</h5>
-                                          <div class="d-flex">
-                                            <i class="fas fa-user-friends m-1 text-muted"></i>
-                                            <p>2 mutual friends: <span class="fw-bold">Jerry</span> and <span class="fw-bold">Phu</span></p>
-                                          </div>
-                                          <div class="d-flex">
-                                          <i class="fas fa-graduation-cap m-1 text-muted"></i>
-                                          <p>Studies at MIT</p>
-                                          </div>
-                                        </div>
-                                      </div>
-                                    </div>
-                                  ' data-bs-html="true">
-                <div class="position-relative">
-                  <img src="https://source.unsplash.com/random/5" alt="avatar" class="rounded-circle me-2"
-                    style="width: 38px; height: 38px; object-fit: cover" />
-                  <span class="
-                        position-absolute
-                        bottom-0
-                        translate-middle
-                        border border-light
-                        rounded-circle
-                        bg-success
-                        p-1
-                      " style="left: 75%">
-                    <span class="visually-hidden"></span>
-                  </span>
-                </div>
-                <p class="m-0">Phu</p>
-              </div>
-            </li>
-            <!-- friend 11 -->
-            <li class="dropdown-item rounded my-2 px-0" type="button" data-bs-toggle="modal"
-              data-bs-target="#singleChat1">
-              <!-- avatar -->
-              <div class="d-flex align-items-center mx-2 chat-avatar" data-bs-custom-class="chat-box"
-                data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover"
-                data-bs-content='
-                    <div>
-                      <div class="popover-body d-flex p-2">
-                        <div>
-                          <img src="https://source.unsplash.com/random/4" alt="avatar" class="pop-avatar"  />
-                        </div>
-                        <div >
-                          <h5>Mike</h5>
-                          <div class="d-flex">
-                            <i class="fas fa-user-friends m-1 text-muted"></i>
-                            <p>2 mutual friends: <span class="fw-bold">Jerry</span> and <span class="fw-bold">Phu</span></p>
-                          </div>
-                          <div class="d-flex">
-                          <i class="fas fa-graduation-cap m-1 text-muted"></i>
-                          <p>Studies at MIT</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ' data-bs-html="true">
-                <div class="position-relative">
-                  <img src="https://source.unsplash.com/random/4" alt="avatar" class="rounded-circle me-2"
-                    style="width: 38px; height: 38px; object-fit: cover" />
-                  <span class="
-                        position-absolute
-                        bottom-0
-                        translate-middle
-                        border border-light
-                        rounded-circle
-                        bg-success
-                        p-1
-                      " style="left: 75%">
-                    <span class="visually-hidden"></span>
-                  </span>
-                </div>
-                <p class="m-0">Mike</p>
-              </div>
-            </li>
-            <!-- friend 12 -->
-            <li class="dropdown-item rounded my-2 px-0" type="button" data-bs-toggle="modal"
-              data-bs-target="#singleChat2">
-              <!-- avatar -->
-              <div class="d-flex align-items-center mx-2 chat-avatar" data-bs-custom-class="chat-box"
-                data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover"
-                data-bs-content='
-                          <div>
-                            <div class="popover-body d-flex p-2">
-                              <div>
-                                <img src="https://source.unsplash.com/random/2" alt="avatar" class="pop-avatar"  />
-                              </div>
-                              <div >
-                                <h5>Tuan</h5>
-                                <div class="d-flex">
-                                  <i class="fas fa-user-friends m-1 text-muted"></i>
-                                  <p>2 mutual friends: <span class="fw-bold">Jerry</span> and <span class="fw-bold">Phu</span></p>
-                                </div>
-                                <div class="d-flex">
-                                <i class="fas fa-graduation-cap m-1 text-muted"></i>
-                                <p>Studies at MIT</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ' data-bs-html="true">
-                <div class="position-relative">
-                  <img src="https://source.unsplash.com/random/2" alt="avatar" class="rounded-circle me-2"
-                    style="width: 38px; height: 38px; object-fit: cover" />
-                  <span class="
-                        position-absolute
-                        bottom-0
-                        translate-middle
-                        border border-light
-                        rounded-circle
-                        bg-success
-                        p-1
-                      " style="left: 75%">
-                    <span class="visually-hidden"></span>
-                  </span>
-                </div>
-                <p class="m-0">Tuan</p>
-              </div>
-            </li>
-            <!-- friend 13 -->
-            <li class="dropdown-item rounded my-2 px-0" type="button" data-bs-toggle="modal"
-              data-bs-target="#singleChat3">
-              <!-- avatar -->
-              <div class="d-flex align-items-center mx-2 chat-avatar" data-bs-custom-class="chat-box"
-                data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover"
-                data-bs-content='
-                              <div>
-                                <div class="popover-body d-flex p-2">
-                                  <div>
-                                    <img src="https://source.unsplash.com/random/3" alt="avatar" class="pop-avatar"  />
-                                  </div>
-                                  <div >
-                                    <h5>Jerry</h5>
-                                    <div class="d-flex">
-                                      <i class="fas fa-user-friends m-1 text-muted"></i>
-                                      <p>2 mutual friends: <span class="fw-bold">Jerry</span> and <span class="fw-bold">Phu</span></p>
-                                    </div>
-                                    <div class="d-flex">
-                                    <i class="fas fa-graduation-cap m-1 text-muted"></i>
-                                    <p>Studies at MIT</p>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            ' data-bs-html="true">
-                <div class="position-relative">
-                  <img src="https://source.unsplash.com/random/3" alt="avatar" class="rounded-circle me-2"
-                    style="width: 38px; height: 38px; object-fit: cover" />
-                  <span class="
-                        position-absolute
-                        bottom-0
-                        translate-middle
-                        border border-light
-                        rounded-circle
-                        bg-success
-                        p-1
-                      " style="left: 75%">
-                    <span class="visually-hidden"></span>
-                  </span>
-                </div>
-                <p class="m-0">Jerry</p>
-              </div>
-            </li>
-            <!-- friend 14 -->
-            <li class="dropdown-item rounded my-2 px-0" type="button" data-bs-toggle="modal"
-              data-bs-target="#singleChat4">
-              <!-- avatar -->
-              <div class="d-flex align-items-center mx-2 chat-avatar" data-bs-custom-class="chat-box"
-                data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover"
-                data-bs-content='
-                          <div>
-                            <div class="popover-body d-flex p-2">
-                              <div>
-                                <img src="https://source.unsplash.com/random/4" alt="avatar" class="pop-avatar"  />
-                              </div>
-                              <div >
-                                <h5>Tony</h5>
-                                <div class="d-flex">
-                                  <i class="fas fa-user-friends m-1 text-muted"></i>
-                                  <p>2 mutual friends: <span class="fw-bold">Jerry</span> and <span class="fw-bold">Phu</span></p>
-                                </div>
-                                <div class="d-flex">
-                                <i class="fas fa-graduation-cap m-1 text-muted"></i>
-                                <p>Studies at MIT</p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ' data-bs-html="true">
-                <div class="position-relative">
-                  <img src="https://source.unsplash.com/random/4" alt="avatar" class="rounded-circle me-2"
-                    style="width: 38px; height: 38px; object-fit: cover" />
-                  <span class="
-                        position-absolute
-                        bottom-0
-                        translate-middle
-                        border border-light
-                        rounded-circle
-                        bg-success
-                        p-1
-                      " style="left: 75%">
-                    <span class="visually-hidden"></span>
-                  </span>
-                </div>
-                <p class="m-0">Tony</p>
-              </div>
-            </li>
-            <!-- friend 15 -->
-            <li class="dropdown-item rounded my-2 px-0" type="button" data-bs-toggle="modal"
-              data-bs-target="#singleChat5">
-              <!-- avatar -->
-              <div class="d-flex align-items-center mx-2 chat-avatar" data-bs-custom-class="chat-box"
-                data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover"
-                data-bs-content='
-                      <div>
-                        <div class="popover-body d-flex p-2">
-                          <div>
-                            <img src="https://source.unsplash.com/random/5" alt="avatar" class="pop-avatar"  />
-                          </div>
-                          <div >
-                            <h5>Phu</h5>
-                            <div class="d-flex">
-                              <i class="fas fa-user-friends m-1 text-muted"></i>
-                              <p>2 mutual friends: <span class="fw-bold">Jerry</span> and <span class="fw-bold">Phu</span></p>
-                            </div>
-                            <div class="d-flex">
-                            <i class="fas fa-graduation-cap m-1 text-muted"></i>
-                            <p>Studies at MIT</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ' data-bs-html="true">
-                <div class="position-relative">
-                  <img src="https://source.unsplash.com/random/5" alt="avatar" class="rounded-circle me-2"
-                    style="width: 38px; height: 38px; object-fit: cover" />
-                  <span class="
-                        position-absolute
-                        bottom-0
-                        translate-middle
-                        border border-light
-                        rounded-circle
-                        bg-success
-                        p-1
-                      " style="left: 75%">
-                    <span class="visually-hidden"></span>
-                  </span>
-                </div>
-                <p class="m-0">Phu</p>
-              </div>
-            </li>
+            
           </div>
         </div>
       </div>
@@ -3426,6 +2702,9 @@
 
   <script src="/static/js/api.js"></script>
   <script src="/static/js/index.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+  
+
 </body>
 
 </html>

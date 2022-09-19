@@ -12,6 +12,7 @@ class User(UserMixin, db.Model):
     user_status = db.Column(db.Integer)
     birthday = db.Column(db.String(1000))
     nickname = db.Column(db.String(1000))
+    school_number = db.Column(db.Integer)
     avatar_path = db.Column(db.String(100), default="default.png")
     posts = db.relationship('Post', backref='author', lazy='dynamic')
     reactions = db.relationship('PostReactions', backref='user', lazy='dynamic', primaryjoin="User.id == PostReactions.user_id")
@@ -23,6 +24,7 @@ class Post(db.Model):
     owner_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     publish_time = db.Column(db.DateTime, default=datetime.now)
     privacy = db.Column(db.Integer, default=0)
+    source_code_attachment = db.Column(db.String(9000))
     reactions = db.relationship('PostReactions', backref='author', lazy='dynamic')
     comments = db.relationship('PostComments', backref='post', lazy='dynamic')
 

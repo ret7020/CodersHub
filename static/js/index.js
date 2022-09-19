@@ -58,6 +58,7 @@ $("#new_post_form").submit(function(e) {
             modal.hide();
             $("#post_text_area").val('');
             $(resp["data"]).hide().prependTo(".posts_area").fadeIn();
+            hljs.highlightAll();
         }else{
             $("#publication_error").css("display", "block");
         }
@@ -67,6 +68,7 @@ $("#new_post_form").submit(function(e) {
 $(document).ready(function() {
     getReqApi('/api/load_posts_for_user').then(function(resp){
         if (resp["status"]){
+            $(".posts_area").html("");
             $(".posts_area").html(resp["data"]);
         }else{
 
