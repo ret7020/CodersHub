@@ -1,75 +1,73 @@
-
 {% extends "base.html" %}
 {% block middle_slider %}
-<div class="d-flex flex-column justify-content-center w-100 mx-auto"
-          style="padding-top: 56px; max-width: 680px">
+<div class="d-flex flex-column justify-content-center w-100 mx-auto" style="padding-top: 56px; max-width: 680px">
+  <!-- create post -->
+  <div class="bg-white p-3 mt-3 rounded border shadow">
+    <!-- avatar -->
+    <div class="d-flex" type="button">
+      <div class="p-1">
+        <img src="{{avatar_path}}" alt="avatar" class="rounded-circle me-2"
+          style="width: 38px; height: 38px; object-fit: cover" />
+      </div>
+      <input type="text" class="form-control rounded-pill border-0 bg-gray pointer" disabled
+        placeholder="Поделитесь своими мыслями" data-bs-toggle="modal" data-bs-target="#createModal" />
+    </div>
+    <!-- create modal -->
+    <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true"
+      data-bs-backdrop="false">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <!-- head -->
+          <div class="modal-header align-items-center">
 
-          <!-- create post -->
-          <div class="bg-white p-3 mt-3 rounded border shadow">
-            <!-- avatar -->
-            <div class="d-flex" type="button">
-              <div class="p-1">
-                <img src="{{avatar_path}}" alt="avatar" class="rounded-circle me-2"
-                  style="width: 38px; height: 38px; object-fit: cover" />
-              </div>
-              <input type="text" class="form-control rounded-pill border-0 bg-gray pointer" disabled
-                placeholder="Поделитесь своими мыслями" data-bs-toggle="modal" data-bs-target="#createModal" />
+            <h5 class="text-dark text-center w-100 m-0" id="exampleModalLabel">
+              Новый пост
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <!-- body -->
+          <div class="modal-body">
+            <div class="alert alert-danger" role="alert" id="publication_error" style="display: none;">
+              Произошла ошибка при публикации!
             </div>
-            <!-- create modal -->
-            <div class="modal fade" id="createModal" tabindex="-1" aria-labelledby="createModalLabel" aria-hidden="true"
-              data-bs-backdrop="false">
-              <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                  <!-- head -->
-                  <div class="modal-header align-items-center">
-                    
-                    <h5 class="text-dark text-center w-100 m-0" id="exampleModalLabel">
-                      Новый пост
-                    </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <!-- body -->
-                  <div class="modal-body">
-                    <div class="alert alert-danger" role="alert" id="publication_error" style="display: none;">
-                      Произошла ошибка при публикации!
-                    </div>
-                    <div class="my-1 p-1">
-                      <div class="d-flex flex-column">
-                        <form action="/api/create_post" method="POST" id="new_post_form">
-                          <!-- name -->
-                          <div class="d-flex align-items-center">
-                            <div class="p-2">
-                              <img src="{{avatar_path}}" alt="from fb" class="rounded-circle" style="
+            <div class="my-1 p-1">
+              <div class="d-flex flex-column">
+                <form action="/api/create_post" method="POST" id="new_post_form">
+                  <!-- name -->
+                  <div class="d-flex align-items-center">
+                    <div class="p-2">
+                      <img src="{{avatar_path}}" alt="from fb" class="rounded-circle" style="
                                   width: 38px;
                                   height: 38px;
                                   object-fit: cover;
                                 " />
-                            </div>
-                            <div>
-                              <p class="m-0 fw-bold">{{user_name}}</p>
-                              <select class="form-select border-0 bg-gray w-75 fs-7"
-                                aria-label="Default select example">
-                                <option selected value="1">Для всех</option>
-                                <option value="2">Для друзей</option>
-                                <option value="3">Только для себя</option>
-                                <option value="3">Только для школы %N%</option>
-                              </select>
-                            </div>
-                          </div>
-                          <!-- text -->
-                          <div class="mt-4">
-                            <textarea cols="30" rows="5" class="form-control border-1" name="post_text" id="post_text_area"></textarea>
-                          </div>
-                          <div class="collapse" id="collapseCodeSnippetArea">
-                            <div class="mt-4">
-                              Вставьте код сюда:
-                              <textarea cols="30" rows="5" class="form-control border-1" name="post_attachment_code_snippet" id="post_attachment_code_snippet" required></textarea>
-                            </div>
-                          </div>
+                    </div>
+                    <div>
+                      <p class="m-0 fw-bold">{{user_name}}</p>
+                      <select class="form-select border-0 bg-gray w-75 fs-7" aria-label="Default select example">
+                        <option selected value="1">Для всех</option>
+                        <option value="2">Для друзей</option>
+                        <option value="3">Только для себя</option>
+                        <option value="3">Только для школы %N%</option>
+                      </select>
+                    </div>
+                  </div>
+                  <!-- text -->
+                  <div class="mt-4">
+                    <textarea cols="30" rows="5" class="form-control border-1" name="post_text"
+                      id="post_text_area"></textarea>
+                  </div>
+                  <div class="collapse" id="collapseCodeSnippetArea">
+                    <div class="mt-4">
+                      Вставьте код сюда:
+                      <textarea cols="30" rows="5" class="form-control border-1" name="post_attachment_code_snippet"
+                        id="post_attachment_code_snippet" required></textarea>
+                    </div>
+                  </div>
 
 
-                          <!-- options -->
-                          <div class="
+                  <!-- options -->
+                  <div class="
                               d-flex
                               justify-content-between
                               border border-1 border-light
@@ -77,9 +75,9 @@
                               p-3
                               mt-3
                             ">
-                            <p class="m-0">Добавить к посту</p>
-                            <div>
-                              <i class="
+                    <p class="m-0">Добавить к посту</p>
+                    <div>
+                      <i class="
                                   fas
                                   fa-images
                                   fs-5
@@ -87,92 +85,93 @@
                                   pointer
                                   mx-1
                                 ">
-                              </i>
-                              <i class="
+                      </i>
+                      <i class="
                                 fas
                                 fa-code
                                 fs-5
                                 text-danger
                                 pointer
                                 mx-1
-                          " data-bs-toggle="collapse" href="#collapseCodeSnippetArea" role="button" aria-expanded="false" aria-controls="collapseCodeSnippetArea"></i>
-                            </div>
-                          </div>
-                      </div>
+                          " data-bs-toggle="collapse" href="#collapseCodeSnippetArea" role="button"
+                        aria-expanded="false" aria-controls="collapseCodeSnippetArea"></i>
                     </div>
-
-                    <!-- end -->
                   </div>
-                  <!-- footer -->
-                  <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary w-100">
-                      Опубликовать
-                    </button>
-                  </div>
-                  </form>
-                </div>
               </div>
             </div>
-            <hr />
-            <!-- actions -->
-            <div class="d-flex flex-column flex-lg-row mt-3">
-              <!-- a 1 -->
-              <div class="
-                    dropdown-item
-                    rounded
-                    d-flex
-                    align-items-center
-                    justify-content-center
-                  " type="button">
-                <i class="fas fa-code me-2 text-danger"></i>
-                <p class="m-0 text-muted">Код</p>
-              </div>
-              <!-- a 2 -->
-              <div class="
-                    dropdown-item
-                    rounded
-                    d-flex
-                    align-items-center
-                    justify-content-center
-                  " type="button">
-                <i class="fas fa-photo-video me-2 text-success"></i>
-                <p class="m-0 text-muted">Фото/Видео</p>
-              </div>
-              <!-- a 3 -->
-              <div class="
-                    dropdown-item
-                    rounded
-                    d-flex
-                    align-items-center
-                    justify-content-center
-                  " type="button">
-                <i class="fas fa-smile me-2 text-warning"></i>
-                <p class="m-0 text-muted">Статус</p>
-              </div>
-            </div>
+
+            <!-- end -->
           </div>
-
-          <!-- posts -->
-
-
-          <div class="posts_area">
-            <div class="bg-white p-4 rounded shadow mt-3">
-              <!-- Loading bar -->
-              <div class="d-flex justify-content-center">
-                <div class="spinner-border" role="status">
-                  <span class="sr-only">Loading...</span>
-                </div>
-              </div>              
-            </div>
+          <!-- footer -->
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary w-100">
+              Опубликовать
+            </button>
           </div>
-          
+          </form>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <!-- actions -->
+    <div class="d-flex flex-column flex-lg-row mt-3">
+      <!-- a 1 -->
+      <div class="
+                    dropdown-item
+                    rounded
+                    d-flex
+                    align-items-center
+                    justify-content-center
+                  " type="button">
+        <i class="fas fa-code me-2 text-danger"></i>
+        <p class="m-0 text-muted">Код</p>
+      </div>
+      <!-- a 2 -->
+      <div class="
+                    dropdown-item
+                    rounded
+                    d-flex
+                    align-items-center
+                    justify-content-center
+                  " type="button">
+        <i class="fas fa-photo-video me-2 text-success"></i>
+        <p class="m-0 text-muted">Фото/Видео</p>
+      </div>
+      <!-- a 3 -->
+      <div class="
+                    dropdown-item
+                    rounded
+                    d-flex
+                    align-items-center
+                    justify-content-center
+                  " type="button">
+        <i class="fas fa-smile me-2 text-warning"></i>
+        <p class="m-0 text-muted">Статус</p>
+      </div>
+    </div>
+  </div>
 
-        </div>{% endblock %}
+  <!-- posts -->
+
+
+  <div class="posts_area">
+    <div class="bg-white p-4 rounded shadow mt-3">
+      <!-- Loading bar -->
+      <div class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>{% endblock %}
 
 {% block right_slider %}
 <!-- ================= Chatbar ================= -->
-div class="col-12 col-lg-3">
-<div class="
+<div class="col-12 col-lg-3">
+  <div class="
       d-none d-xxl-block
       h-100
       fixed-top
@@ -186,132 +185,61 @@ div class="col-12 col-lg-3">
       padding-top: 56px;
       left: initial !important;
     ">
-  <div class="p-3 mt-4">
-    <!-- sponsors -->
-    <h5 class="text-muted">Рекомендуем</h5>
-    <!-- s 1 -->
-    <li class="dropdown-item my-2 d-flex justify-content-between">
-      <!-- img -->
-      <a href="#" class="
-            d-flex
-            align-items-center
-            text-decoration-none
-            link-dark
-          ">
-        <img src="https://source.unsplash.com/random/1" alt="ads"
-          style="width: 100px; height: 100px; object-fit: cover" class="rounded me-3" />
-        <div>
-          <p class="m-0">Lorem ipsum</p>
-          <span class="text-muted fs-7">loremipsum.com</span>
-        </div>
-      </a>
-      <!-- icon -->
-      <div class="
-            rounded-circle
-            p-1
-            bg-white
-            d-flex
-            align-items-center
-            justify-content-center
-            mx-2
-            sponsor-icon
-            nav-item
-          " type="button" style="width: 38px; height: 38px">
-        <i class="fas fa-ellipsis-h text-muted p-2" data-bs-toggle="dropdown"></i>
-        <!-- menu -->
-        <ul class="dropdown-menu">
-          <!-- item 1 -->
-          <li class="dropdown-item">
-            <a href="#" class="
-                  d-flex
-                  align-items-center
-                  text-decoration-none text-dark
-                ">
-              <i class="far fa-window-close"></i>
-              <div class="ms-3">
-                <p class="m-0">Неинтересно</p>
-                <span class="text-muted fs-7">Скрыть объявление</span>
-              </div>
-            </a>
-          </li>
+    <div class="p-3 mt-4">
+      <!-- sponsors -->
+      <h5 class="text-muted">Рекомендуем</h5>
+      {% for recomend in recomendations %}
+      
+        <li class="dropdown-item my-2 d-flex justify-content-between">
+          <!-- img -->
+          <a href="{{recomend['url_click']}}" class="
+              d-flex
+              align-items-center
+              text-decoration-none
+              link-dark
+            ">
+            <img src="{{recomend['image']}}" alt="ads" style="width: 100px; height: 100px; object-fit: cover"
+              class="rounded me-3" />
+            <div>
+              <p class="m-0">{{recomend['title']}}</p>
+              <span class="text-muted fs-7">{{recomend['url_show']}}</span>
+            </div>
+          </a>
+          <!-- icon -->
+          <div class="
+              rounded-circle
+              p-1
+              bg-white
+              d-flex
+              align-items-center
+              justify-content-center
+              mx-2
+              sponsor-icon
+              nav-item
+            " type="button" style="width: 38px; height: 38px">
+            <i class="fas fa-ellipsis-h text-muted p-2" data-bs-toggle="dropdown"></i>
+            <!-- menu -->
+            <ul class="dropdown-menu">
+              <!-- item 1 -->
+              <li class="dropdown-item">
+                <a href="#" class="
+                    d-flex
+                    align-items-center
+                    text-decoration-none text-dark
+                  ">
+                  <i class="far fa-window-close"></i>
+                  <div class="ms-3">
+                    <p class="m-0">Неинтересно</p>
+                    <span class="text-muted fs-7">Скрыть объявление</span>
+                  </div>
+                </a>
+              </li>
 
-        </ul>
-      </div>
-    </li>
-    <!-- s 2 -->
-    <li class="dropdown-item my-2 d-flex justify-content-between">
-      <!-- img -->
-      <a href="#" class="
-            d-flex
-            align-items-center
-            text-decoration-none
-            link-dark
-          ">
-        <img src="https://source.unsplash.com/random/2" alt="ads"
-          style="width: 100px; height: 100px; object-fit: cover" class="rounded me-3" />
-        <div>
-          <p class="m-0">Lorem ipsum</p>
-          <span class="text-muted fs-7">loremipsum.com</span>
-        </div>
-      </a>
-      <!-- icon -->
-      <div class="
-            rounded-circle
-            p-1
-            bg-white
-            d-flex
-            align-items-center
-            justify-content-center
-            mx-2
-            sponsor-icon
-            nav-item
-          " type="button" style="width: 38px; height: 38px">
-        <i class="fas fa-ellipsis-h text-muted p-2" data-bs-toggle="dropdown"></i>
-        <!-- menu -->
-        <ul class="dropdown-menu">
-          <!-- item 1 -->
-          <li class="dropdown-item">
-            <a href="#" class="
-                  d-flex
-                  align-items-center
-                  text-decoration-none text-dark
-                ">
-              <i class="far fa-window-close"></i>
-              <div class="ms-3">
-                <p class="m-0">Hide Ad</p>
-                <span class="text-muted fs-7">Never see this add again.</span>
-              </div>
-            </a>
-          </li>
-          <!-- item 2 -->
-          <li class="dropdown-item">
-            <a href="#" class="
-                  d-flex
-                  align-items-center
-                  text-decoration-none text-dark
-                ">
-              <i class="fas fa-exclamation-triangle"></i>
-              <div class="ms-3">
-                <p class="m-0">Report Ad</p>
-                <span class="text-muted fs-7">Tell us a problem with this add.</span>
-              </div>
-            </a>
-          </li>
-          <!-- item 3 -->
-          <li class="dropdown-item">
-            <a href="#" class="
-                  d-flex
-                  align-items-center
-                  text-decoration-none text-dark
-                ">
-              <i class="fas fa-info-circle"></i>
-              <div class="ms-3">
-                <p class="m-0">Why am I seeing this ad?</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
+            </ul>
+          </div>
+        </li>
+      {% endfor %}
+    </div>
     </li>
     <!-- contacts -->
     <hr class="m-0" />
@@ -319,10 +247,9 @@ div class="col-12 col-lg-3">
       <p class="text-muted fs-5 m-0">Мессенджер</p>
       <!-- icons -->
       <div class="text-muted">
-       
+
         <!-- new chat -->
-        <i class="fas fa-search mx-2 pointer" type="button" data-bs-toggle="modal"
-          data-bs-target="#newChat"></i>
+        <i class="fas fa-search mx-2 pointer" type="button" data-bs-toggle="modal" data-bs-target="#newChat"></i>
         <!-- chat settings -->
         <i class="fas fa-ellipsis-h pointer text-muted mx-2" type="button" data-bs-toggle="dropdown"></i>
         <!-- chat setting dd -->
@@ -459,12 +386,10 @@ div class="col-12 col-lg-3">
       </div>
     </div>
     <!-- friend 1 -->
-    <li class="dropdown-item rounded my-2 px-0" type="button" data-bs-toggle="modal"
-      data-bs-target="#singleChat1">
+    <li class="dropdown-item rounded my-2 px-0" type="button" data-bs-toggle="modal" data-bs-target="#singleChat1">
       <!-- avatar -->
-      <div class="d-flex align-items-center mx-2 chat-avatar" data-bs-custom-class="chat-box"
-        data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover"
-        data-bs-content='
+      <div class="d-flex align-items-center mx-2 chat-avatar" data-bs-custom-class="chat-box" data-bs-container="body"
+        data-bs-toggle="popover" data-bs-placement="left" data-bs-trigger="hover" data-bs-content='
             <div>
               <div class="popover-body d-flex p-2">
                 <div>
@@ -502,7 +427,7 @@ div class="col-12 col-lg-3">
         <p class="m-0">Mike</p>
       </div>
     </li>
-    
+
   </div>
 </div>
 </div>
@@ -511,27 +436,18 @@ div class="col-12 col-lg-3">
 {% endblock %}
 
 
-      
+
+<div class="fixed-bottom right-100 p-3" style="z-index: 6; left: initial" type="button" data-bs-toggle="modal"
+  data-bs-target="#newChat">
+  <i class="fas fa-edit bg-white rounded-circle p-3 shadow"></i>
+</div>
+{% block other_includes %}
+<script src="/static/js/api.js"></script>
+<script src="/static/js/index.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+{% endblock %}
 
 
-
-    </div>
-  </div>
-
-  <!-- ================= Chat Icon ================= -->
-  <div class="fixed-bottom right-100 p-3" style="z-index: 6; left: initial" type="button" data-bs-toggle="modal"
-    data-bs-target="#newChat">
-    <i class="fas fa-edit bg-white rounded-circle p-3 shadow"></i>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
-    crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-
-  <script src="/static/js/api.js"></script>
-  <script src="/static/js/index.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
-  
 
 </body>
 

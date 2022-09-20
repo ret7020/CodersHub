@@ -64,7 +64,7 @@
                 <div class="me-2">
                     <i class="text-primary fas fa-thumbs-up"></i>
                 </div>
-                <p class="m-0 text-muted fs-7">0</p>
+                <p class="m-0 text-muted fs-7">{{post[8]}}</p>
 
             </div>
             <!-- comments start-->
@@ -116,20 +116,7 @@
                             <p class="m-0 {% if post[5] == 0 %} text-danger {% endif %}"
                                 id="dislike-post-{{post[0]}}-title">Не нравится</p>
                         </div>
-                        <div class="
-                        dropdown-item
-                        rounded
-                        d-flex
-                        justify-content-center
-                        align-items-center
-                        pointer
-                        text-muted
-                        p-1
-                        " data-bs-toggle="collapse" data-bs-target="#collapsePost{{post[0]}}" aria-expanded="false"
-                            aria-controls="collapsePost{{post[0]}}">
-                            <i class="fas fa-comment-alt me-3"></i>
-                            <p class="m-0">Комментарии</p>
-                        </div>
+                        
                     </div>
                     <!-- comment expand -->
                     <div id="collapsePost{{post[0]}}" class="accordion-collapse collapse" aria-labelledby="headingTwo"
@@ -156,7 +143,7 @@
                                 </div>
                                 <!-- input -->
                                 <input type="text" class="form-control border-0 rounded-pill bg-gray"
-                                    placeholder="Write a comment" />
+                                    placeholder="Напишите комментарий" />
                             </form>
                             <!-- end -->
                         </div>

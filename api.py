@@ -51,8 +51,7 @@ def create_post():
         p.source_code_attachment = source_code_attachment
     db.session.add(p)
     db.session.commit()
-    print(source_code_attachment)
-    return jsonify({"status": True, "data": render_template("post.html", posts=[(p.id, p.text, p.publish_time, p.author.f_name, p.author.avatar_path, -1, "0 комментариев", source_code_attachment)], month_translations=month_translations)})
+    return jsonify({"status": True, "data": render_template("post.html", posts=[(p.id, p.text, p.publish_time, p.author.f_name, p.author.avatar_path, -1, "0 комментариев", source_code_attachment, 0)], month_translations=month_translations)})
 
 
 @api.route('/api/get_user_posts')
@@ -76,12 +75,13 @@ def load_posts_for_user():
     posts = []
     for post in Post.query.all():
         reaction = post.reactions.filter(PostReactions.user_id == current_user.id).all()
+        reactions_cnt = len(post.reactions.filter(PostReactions.reaction_type == 1).all())
         if reaction:
             reaction = reaction[0].reaction_type
         else:
             reaction = -1
         comments_cnt = len(post.comments.all())
-        posts.append((post.id, post.text, post.publish_time, post.author.f_name, post.author.avatar_path, reaction, f'{comments_cnt} {numeral_noun_declension(comments_cnt, "комментарий", "комментария", "комментариев")}', post.source_code_attachment))
+        posts.append((post.id, post.text, post.publish_time, post.author.f_name, post.author.avatar_path, reaction, f'{comments_cnt} {numeral_noun_declension(comments_cnt, "комментарий", "комментария", "комментариев")}', post.source_code_attachment, reactions_cnt))
     #posts = [(post.id, post.text, post.publish_time, post.author.f_name, post.author.avatar_path, post.reactions.filter(PostReactions.user_id == current_user.id).all())
     #         for post in Post.query.all()]
     posts = reversed(posts)
