@@ -30,3 +30,7 @@ def faq_page():
         <i>Ответ</i>
         
     </ul>''')
+@main.route('/dev')
+@login_required
+def dev():
+    return render_template('full_text_page.html', user_name=current_user.f_name, avatar_path=f"/users_data/avatars/{current_user.avatar_path}")
